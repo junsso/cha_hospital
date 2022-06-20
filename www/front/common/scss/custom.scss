@@ -1,0 +1,3704 @@
+@charset "UTF-8";
+@import '_variables', '_functions', '_breakpoint';
+
+body{
+    position: relative;
+}
+
+.navi-contain{
+    .top-area{
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        &.diagnosis{
+            background: url(#{$img-temp}img_top_navi_bg1.jpg) no-repeat center / cover;
+        }
+        &.hospital{
+            background: url(#{$img-temp}img_top_navi_bg2.jpg) no-repeat center / cover;
+        }
+        &.hs-infomation{
+            background: url(#{$img-temp}img_top_navi_bg3.jpg) no-repeat center / cover;
+        }
+        &.my-page{
+            background: url(#{$img-temp}img_top_navi_bg4.jpg) no-repeat center / cover;
+        }
+        .wrap-basic{
+            width: 100%;
+            .sc-title{
+                font-size: 28px;
+            }
+        }
+    }
+    .md-area{
+        border-top: 1px solid #{$second-bgcolor};
+        border-bottom: 1px solid #{$second-bgcolor};
+        .wrap-basic{
+            overflow: inherit;
+        }
+    }
+}
+.lnb{
+    display: flex;
+    align-items: center;
+    .col{
+        @include after;
+        &::after{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #{$header-border-color};
+        }
+        &:first-child{
+            @include before;
+            &::before{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1px;
+                height: 100%;
+                background-color: #{$header-border-color};
+            }
+        }
+        &:last-child{
+            min-width: 150px;
+        }
+    }
+    .home{
+        display: block;
+        background: url(#{$img-url}ico_home.svg) no-repeat center / contain;
+        background-size: 20px;
+        width: 45px;
+        height: 40px;
+    }
+    .drop-down{
+        width: 100%;
+        .tt-area{
+            .view{
+                font-size: 0.928em;
+                font-weight: 400;
+                padding: 0 16px;
+                line-height: 40px;
+                position: relative;
+                padding-right: 30px;
+                .arrow{
+                    position: absolute;
+                    right: 10px;
+                    top: 14px;
+                    margin-left: 20px;
+                }
+            }
+        }
+        .drp-down-box{
+            width: calc(100% + 1px);
+            border-radius: 0 0 5px 5px;
+            box-shadow: none;
+            border: 1px solid #{$second-bgcolor};
+            padding: 0;
+            left: -1px;
+            li{
+                border-bottom: 1px solid #{$second-bgcolor};
+                &:last-child{
+                    border-bottom: none;
+                }
+                a{
+                    padding: 8px 14px;
+                    font-weight: 400;
+                    transition: 0.4s all;
+                    &:hover{
+                        background: #{$primary-color};
+                        color: #{$opp-text-color};
+                    }
+                }   
+            }
+        }
+    }
+}
+
+//main
+.main-visual{
+    position: relative;
+    height: calc(100vh - 162px);
+    .key-visual{
+        height: 100%;
+        display: block;
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &.visual1{
+            background-image: url(#{$img-temp}img_visual_main1.jpg);
+        }
+        &.visual2{
+            background-image: url(#{$img-temp}img_visual_main2.jpg);
+        }
+        &.visual3{
+            background-image: url(#{$img-temp}img_visual_main3.jpg);
+        }
+    }
+    .txt-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+        .title{
+            font-size: 36px;
+            font-weight: 700;
+            color: #{$first-bgcolor};
+            margin-bottom: 16px;
+        }
+        .desc{
+            font-size: 16px;
+            color: #{$first-bgcolor};
+            line-height: 1.6;
+        }
+    }
+    .img-box{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.4s all;
+        overflow: hidden;
+        opacity: 0;
+        // visibility: hidden;
+        &.active{
+            .key-visual{
+                animation-duration: 8s;
+                animation-iteration-count: none;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                //animation-direction: alternate;
+            }
+            .txt-box{
+                animation: none;
+            }
+        }
+        &.it-bg-slide1{
+            &.active{
+                .key-visual{
+                    animation-name: zoom-a;
+                }
+            }
+        }
+        &.it-bg-slide2{
+            &.active{
+                .key-visual{
+                    animation-name: zoom-b;
+                }
+            }
+        }
+        &.it-bg-slide3{
+            &.active{
+                .key-visual{
+                    animation-name: zoom-c;
+                }
+            }
+        }
+    }
+}
+@keyframes zoom-a{
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: translate(-2%, 2%) scale(1.08);
+    }
+    50%{
+        transform: translate(-2.5%, 1%) scale(1.12);
+    }
+    65%{
+        transform: translate(-2%, 0.5%) scale(1.12);
+    }
+    100%{
+        transform: translate(0) scale(1);
+    }
+}
+@keyframes zoom-b{
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: translate(-2%, 2%) scale(1.08);
+    }
+    50%{
+        transform: translate(-2.5%, 1%) scale(1.12);
+    }
+    65%{
+        transform: translate(-2%, 0.5%) scale(1.12);
+    }
+    100%{
+        transform: translate(0) scale(1);
+    }
+}
+@keyframes zoom-c{
+    0%{
+        transform: scale(1);
+    }
+    45%{
+        transform: translate(1.5%, 0) scale(1.2);
+    }
+    65%{
+        transform: translate(1%, 0) scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.service-wrap{
+    background-color: #{$primary-color};
+    ul{
+        display: flex;
+        li{
+            text-align: center;
+            flex: 1;
+            @include after;
+            &::after{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 50px;
+                background-color: rgba(255,255,255,0.3);
+            }
+            &:last-child{
+                &::after{
+                    display: none;
+                }
+            }
+            a{
+                display: block;
+                padding: 50px 0;
+                color: #{$first-bgcolor};
+                font-weight: 500;
+                @include before;
+                &::before{
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 15px;
+                }
+            }
+            &.sv-1{
+                a{
+                    &::before{
+                        background: url(#{$img-url}ico_service_hsp.svg) no-repeat center / contain;
+                    }
+                }
+            }
+            &.sv-2{
+                a{
+                    &::before{
+                        background: url(#{$img-url}ico_service_dia.svg) no-repeat center / contain;
+                    }
+                }
+            }
+            &.sv-3{
+                a{
+                    &::before{
+                        background: url(#{$img-url}ico_service_cs.svg) no-repeat center / contain;
+                    }
+                }
+            }
+            &.sv-4{
+                a{
+                    &::before{
+                        background: url(#{$img-url}ico_service_second.svg) no-repeat center / contain;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//진료/상담
+.explan{
+    padding: 50px 0 200px;
+   .top{
+       .flex-wrap{
+           .lf-col{
+               padding-right: 75px;
+                .title{
+                    font-size: 2.285em;
+                    padding-bottom: 12px;
+                    letter-spacing: -1px;
+                }
+                .dsc{
+                    word-break: keep-all;
+                    font-size: 1.071em;
+                    line-height: 1.4;
+                    color: #{$second-title-color};
+                }
+           }
+           .rt-col{
+               margin-left: auto;
+               width: 77vw;
+               .img-wrap{
+                    img{
+                    }
+               }
+           }
+       }
+   } 
+   .middle{
+       margin-top: 126px;
+        .title{
+            font-size: 2.285em;
+            padding-bottom: 12px;
+            letter-spacing: -1px;
+        }
+        .dsc{
+            word-break: keep-all;
+            font-size: 1.071em;
+            line-height: 1.4;
+            color: #{$second-title-color};
+        }
+        .flex-wrap{
+            justify-content: space-between;
+            gap: 24px;
+            .col{
+                flex: 1;
+                .inn{
+                    width: 100%;
+                    height: 600px;
+                    border-radius: 0 50px 0 50px;
+                    padding: 40px 32px;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    .wrp{
+                    }
+                }
+                &.lf-col{
+                    .inn{
+                        background: url(#{$img-temp}img_consulting.png) no-repeat center/ cover;
+                    }
+                }
+                &.md-col{
+                    .inn{
+                        background: url(#{$img-temp}img_movie.png) no-repeat center/ cover;
+                    }
+                }
+                &.rt-col{
+                    .inn{
+                        background: url(#{$img-temp}img_second.png) no-repeat center/ cover;
+                    }
+                }
+            }
+            .link-btn{
+                display: inline-block;
+                padding: 0 30px;
+                border: 1px solid #{$disabled-color};
+                border-radius: 5px;
+                line-height: 40px;
+                color: #{$link-color};
+                transition: 0.1s all;
+                &:hover{
+                    border-color: #{$second-title-color};
+                    color: #{$second-title-color};
+                }
+                &:focus,
+                &:active{
+                    border-color: #{$link-color};
+                    color: #{$link-color};
+                }
+            }
+        }
+    }
+    //병원소개 > 일산차병원
+    &.ilsan{
+        .colum-box{
+            .dsc{
+                font-size: 1.071em;
+                line-height: 1.7;
+                color: #{$second-title-color};
+                word-break: keep-all;
+            }
+            .img-wrap{
+                position: relative;
+                .txt-box{
+                    position: absolute;
+                    top: 50%;
+                    left: 40%;
+                    transform: translateY(-50%);
+                    word-break: keep-all;
+                    h2{
+                        font-size: 32px;
+                        font-weight: 500;
+                        strong{
+                            font-weight: 700;
+                        }
+                    }
+                    .dsc{
+                        font-size: 16px;
+                        line-height: 1.4;
+                    }
+                }
+            }
+        }
+        .middle{
+            .col{
+                flex: inherit;
+                &.lf-col{
+                    float: right;
+                    width: 466px;
+                    margin-left: 58px;
+                } 
+                &.rt-col{
+                    .dsc{
+                        padding-top: 32px;
+                        font-size: 16px;
+                        line-height: 1.6;
+                    }
+                }                           
+            }
+            .flex-wrap{
+               display: block;
+               &::after{
+                   content: '';
+                   display: block;
+                   clear: both;
+               }
+            }
+            .second-title{
+                font-size: 28px;
+                font-weight: 700;
+                @include before;
+                &::before{
+                    position: absolute;
+                    top: -21px;
+                    left: 0;
+                    width: 74px;
+                    height: 3px;
+                    background-color: #{$primary-color};
+                }
+                .primary-color{
+                    color: #{$primary-color};
+                }
+            }
+            .title{
+                font-size: 32px;
+                color: #{$primary-color};
+            }
+        }
+    }
+    //병원소개 > 협력병원
+    &.cooperation{
+        .second-title{
+            font-size: 28px;
+        }
+        .top{
+            padding-top: 40px ;
+        }
+        &.ver2{
+            padding: 50px 0 200px;
+            .lf-col{
+                width: calc(100% - 30.2vw);
+                padding-right: 24px;
+            }
+            .rt-col{
+                width: 30.2vw;
+            }
+            .list{
+                margin-top: 40px;
+                li{
+                    position: relative;
+                    @include before;
+                    font-size: 15px;
+                    font-weight: 500;
+                    padding: 3px 0;
+                    padding-left: 10px;
+                    &::before{
+                        position: absolute;
+                        top: 10px;
+                        left: 0;
+                        width: 4px;
+                        height: 4px;
+                        border-radius: 100%;
+                        background: #{$base-text-color};
+                    }
+                }
+            }
+        }
+    }
+    //이용안내 > 진료절차
+    &.infomation{
+        .top{
+            .flex-wrap{
+                align-items: center;
+                .rt-col{
+                    width: 18.5vw;
+                }
+            }
+        }
+        .middle{
+            margin-top: 40px;
+        }
+        .contents{
+            padding-top: 40px;
+        }
+    }
+}
+
+/*진료/상담 - 상담신청*/
+.sub-basic-form{
+    padding: 50px 0 200px;
+    .top{
+        .title{
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+        .description{
+            font-size: 15px;
+            color: #{$second-title-color};
+            .primary-color{
+                color: #{$primary-color};
+            }
+        }
+    }
+    &.consulting{
+        .flex-wrap{
+            align-items: center;
+        }
+        .table-form{
+            margin: 2vw 0;
+            text-align: left;
+            th,td{
+                height: 62px;
+            }
+            th{
+                vertical-align: top;
+                line-height: 42px;
+                .tt{
+                    font-size: 16px;
+                }
+            }
+            .form-wrap{
+                &.first{
+                    min-width: 140px;
+                }
+            }
+            .wr-state{
+                display: inline-block;
+                vertical-align: middle;
+                color: #{$second-color};
+                &::before{
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 4px;
+                    background: url(#{$img-url}ico_complete.svg) no-repeat center / contain;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .form-control{
+            width: 108px;
+            .space{
+                margin-left: 12px;
+            }
+        }        
+        .space{
+            margin-left: 12px;
+        }
+        .read{
+            cursor: default;
+        }
+    }
+}
+
+.file-upload-wrap{
+    align-items: flex-start !important;
+    .col-8{
+        width: calc(100% - 106px);
+        box-sizing: border-box;
+    }
+    .col-4{
+        margin-left: auto;
+        padding-left: 12px;
+    }
+}
+
+.table-form{
+    border-top: 3px solid #{$base-text-color};
+    border-bottom: 1px solid #{$base-text-color}; 
+    text-align: left;
+    th,td{
+        padding: 10px 0 10px 15px;
+        border-bottom: 1px solid #{$header-border-color};
+        box-sizing: border-box;
+    }
+    &.type-a{
+        .table{
+            th,td{
+                text-align: center;
+            }
+            td{                
+                height: 60px !important;
+                box-sizing: border-box;
+            }
+            .align-left{
+                text-align: left;
+            }
+        }
+    }
+    .desc-ellipsis{
+        @include ellipsis;
+    }
+}
+.star{
+    position: relative;
+    display: inline-block;
+    &::after{
+        content: '*';
+        color: #{$important-color};
+        font-size: 16px;
+        position: absolute;
+        top: 0;
+        right: -12px;
+    }
+}
+.file-up-area{
+    width: 100%;
+    padding: 12px 12px 30px;
+    border: 1px solid #{$textarea-color};
+    border-radius: 5px;
+    min-height: 140px;
+    max-height: 176px;
+    @include scroll;
+    position: relative;
+    .desc{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #{$link-color};
+        &::before{
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 4px;
+            background: url(#{$img-url}ico_file_add.svg) no-repeat center / contain;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .byte{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #{$disabled-color};
+        strong{
+            font-weight: 500;
+            color: #{$byte-color};
+        }
+    }
+}
+.btn-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 8px;
+    width: auto;
+    .col{
+        &.col-12{
+            width: 100%;
+        }
+        &.col-6{
+            width: 50%;
+        }
+    }
+}
+
+.info-box{
+    padding: 10px 0 25px;
+    &.consulting{
+        .title{
+            font-size: 14px;
+            font-weight: 700;
+            color: #{$second-title-color};
+        }
+        .list{
+            li{
+                @include before;
+                font-size: 13px;
+                color: #{$link-color};
+                padding: 2px 0;
+                padding-left: 12px;
+                &::before{
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    background-color: #{$link-color};
+                    position: absolute;
+                    top: 9px;
+                    left: 0;
+                }                
+            }
+        }
+    }
+}
+
+/*진료/상담*/
+.nav-tap{
+    ul{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+        li{
+            flex: 1;
+            &:first-child{
+                a{
+                    border-left-color: #{$base-bordercolor};
+                    border-radius: 5px 0 0 5px;
+                }
+            }
+            &:last-child{
+                a{
+                    //border-left-color: #{$base-bordercolor};
+                    border-radius: 0 5px 5px 0;
+                }
+            }
+            &:active,
+            &:focus,
+            &.active{
+                a{
+                    border-color: #{$primary-color};
+                    background-color: #{$primary-color};
+                    color: #{$first-bgcolor};
+                }
+            }
+            &.active{
+                &:hover{
+                    a{
+                        border-color: #{$primary-color};
+                        background-color: #{$primary-color};
+                        color: #{$first-bgcolor};
+                    }
+                }
+            }
+            a{
+                display: block;
+                border: 1px solid #{$second-bgcolor};
+                text-align: center;
+                border-left-color: #{$transparent};
+                background-color: #{$login-bgcolor};
+                color: #{$link-color};
+                height: 68px;
+                line-height: 68px;
+                font-size: 18px;
+                font-weight: 500;
+                transition: 0.3s all;
+                &:hover{
+                    border-color: #{$primary-color};
+                    background-color: #{$first-bgcolor};
+                    color: #{$primary-color};
+                }
+            }
+        }
+    }
+}
+.introduce{
+    .banner{
+        padding-top: 3.6vw;
+        .img-wrap{
+            position: relative;
+            .txt-box{
+                position: absolute;
+                top: 50%;
+                left: 5vw;
+                transform: translateY(-50%);
+                p{
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: #{$second-title-color};
+                    strong{
+                        font-weight: 700;
+                        color: #{$primary-color};
+                    }
+                }
+            }
+        }
+    }
+    .tab{
+        margin-top: 60px;
+    }
+}
+
+.tab-area{
+    .tab{
+        display: flex;
+        align-items: center;
+        li{
+            a{
+                display: block;
+                text-align: center;
+                min-width: 170px;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 54px;
+                background-color: #{$sub-navi-bg-color};
+                color: #{$link-color};
+                border-radius: 5px 5px 0 0;
+                border: 1px solid #{$second-bgcolor};
+                border-bottom: 0;
+            }
+            &.current{
+                a{
+                    background-color: #{$first-bgcolor};
+                    color: #{$primary-color};
+                    border-color: #{$primary-color};
+                    border-radius: 5px 5px 0 0;
+                    border-bottom-color: #{$transparent};
+                }
+            }
+        }
+    }
+    .tab-content{
+        display: none;
+        &.current{
+            display: block;
+        }
+    }
+    &.type-a{
+        .tab{
+            li{
+                flex: 1;
+                a{
+                    background: #{$first-bgcolor};
+                    border-radius: 0;
+                    line-height: 55px;
+                    border: 1px solid #{$second-bgcolor};
+                } 
+                &.current{
+                    a{
+                        border-color: #{$primary-color};
+                    }
+                }  
+            }
+        }
+    }
+}
+.intro-box{
+    margin-top: 40px;
+    .item{
+        padding: 2.5vw 0;
+    }
+    .flex-wrap{
+        .lf-col{
+            width: 195px;
+            margin-right: 74px;
+            .txt-box{
+                padding-top: 12px;
+                border-top: 3px solid #{$primary-color};
+                h2{
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+            }
+        }
+        .rt-col{
+            width: calc(100% - 269px);
+            .bold{
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+            .desc{
+                font-size: 15px;
+            }
+        }
+    }
+    .pro-profile{
+        .item{
+            position: relative;
+            border-bottom: 1px solid #{$header-border-color};
+            &.active{
+                .drp-down-box{
+                    visibility: visible;
+                    height: auto;
+                    opacity: 1;
+                    padding-top: 30px;
+                }
+                .button-box{
+                    .view{
+                        .arrow{
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+            }
+            .flex-wrap{
+                align-items: flex-end;
+                .lf{
+                    padding-right: 30px;
+                }
+            }
+            .dc-name{
+                font-size: 20px;
+                font-weight: 700;
+                span{
+                    font-weight: 400;
+                }
+            }
+            .dsc{
+                font-size: 15px;
+            }
+            .drp-down-box{
+                visibility: hidden;
+                overflow: hidden;
+                opacity: 0;
+                height: 0;
+                transition: 0.4s all;
+                .check{
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 100%;
+                    border: 2px solid #{$primary-color};
+                }
+            }
+        }
+        .button-box{
+            margin-top: 15px;
+            .flex-wrap{
+                margin-left: -4px;
+                margin-right: -4px;
+                .col{
+                    padding: 0 4px;
+                }
+            }
+            .view{
+                border: 1px solid #{$textarea-color};
+                border-radius: 5px;
+                padding: 0 20px 0 10px;
+                color: #{$second-title-color};
+                font-size: 15px;
+                font-weight: 400;
+                min-width: 128px;
+                line-height: 38px;
+                position: relative;
+                cursor: pointer;
+                .arrow{
+                    position: absolute;
+                    top: 15px;
+                    right: 10px;
+                    @include inline-group;
+                    width: 13px;
+                    height: 8px;
+                    background: url(#{$img-url}ico_arrow_down.svg) no-repeat center / contain;
+                    margin-left: 10px;
+                    transition: 0.4s all;
+                }
+            }
+        }
+    }
+}
+
+/*로그인*/
+.login{
+    background: #{$login-bgcolor};
+    .login-form{
+        padding: 100px 0 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .top{
+            text-align: center;
+            h2{
+                font-size: 28px;
+                span{
+                    font-weight: 400;
+                }
+            }
+            .dsc{
+                font-size: 15px;
+                color: #{$second-title-color};
+            }
+        }
+        .bg-box{
+            border: 1px solid #{$header-border-color};
+            border-radius: 30px;
+            background-color: #{$first-bgcolor};
+            min-width: 956px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 68px 34px;
+        }
+        .id-form{
+            width: 496px;
+            max-width: 496px;
+            &.login-box{
+                .flex-wrap{
+                    width: 100%;
+                    .lf-col{
+                        width: calc(100% - 128px);
+                    }
+                    .rt-col{
+                        margin-left: 8px;
+                        .btn{
+                            width: 120px;
+                            line-height: 130px;
+                            height: 130px;
+                        }
+                    }
+                }
+                .join-info-desc{
+                    display: flex;
+                    align-items: center;
+                    .desc{
+                        font-size: 13px;
+                        color: #{$link-color};
+                    }
+                    a{
+                        font-size: 13px;
+                        color: #{$primary-color};
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+        .member-search-box{
+            width: 100%;
+            .flex-wrap{
+                .col{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 30px;
+                    position: relative;
+                    @include after;
+                    &::after{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 1px;
+                        height: 30px;
+                        background-color: #{$second-bgcolor};
+                    }
+                    &:last-child{
+                        &::after{
+                            display: none;
+                        }
+                    }
+                    a{
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+.password{
+    position: relative;
+    .form-control{
+        padding-right: 46px;
+    }
+    .pw-toggle{
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        transform: translateY(-50%);
+        .btn-toggle{
+            background: url(#{$img-url}ico_eyes_off.svg) no-repeat center / contain;
+            background-size: 16px;
+            width: 20px;
+            height: 20px;
+            &.active{
+                background-image: url(#{$img-url}ico_eyes_on.svg);
+            }
+        }
+    }
+}
+
+/*마이페이지 > 내상담/진료일정*/
+.schedule-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 46px;
+    .years{
+        display: flex;
+        align-items: center;
+        .num{
+            font-size: 24px;
+            margin: 0 6px;
+        }
+        .btns{
+            width: 40px;
+            height: 20px;
+            &.prev{
+                background: url(#{$img-url}ico_btn_prev.svg) no-repeat center / contain;
+                background-size: 16px;
+            }
+            &.next{
+                background: url(#{$img-url}ico_btn_next.svg) no-repeat center / contain;
+                background-size: 16px;
+            }
+        }
+    }
+    .table-form{
+        .table{
+            text-align: center;
+        }
+        &.sch{
+            th{
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0;
+                height: 40px;
+                border: 1px solid #{$header-border-color};
+                border-bottom: 1px solid #{$base-text-color};
+                background-color: #{$login-bgcolor};
+                &:nth-of-type(1){
+                    border-left: 0;
+                    width: 60px;
+                }
+                &:last-of-type{
+                    border-right: 0;
+                }
+            }
+            td{
+                border: 1px solid #{$header-border-color};   
+                padding: 0;
+                height: 47px; 
+                &:nth-of-type(1){
+                    border-left: 0;
+                    width: 60px;
+                }
+                &:last-of-type{
+                    border-right: 0;
+                }            
+            }
+            .value{
+                color: #{$second-title-color};
+                font-weight: 500;
+            }
+            .value2{
+                background-color: #{$login-bgcolor};
+                font-weight: 500;
+            }
+            .check{
+                display: block;
+                margin: auto;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #{$link-color};
+                border-radius: 100%;
+            }
+            .check2{
+                display: block;
+                margin: auto;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #{$primary-color};
+                border-radius: 100%;
+            }
+        }
+        &.m-sch{
+            display: none;
+        }
+    }
+}
+.second-basic-form{
+    padding-top: 80px;
+    .top{
+        .title{
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+}
+.table-form{
+    &.cs-history{
+        &.cs-history-list{
+            text-align: center;
+            .table{
+                th{
+                    padding: 10px 5px;
+                    border-bottom: 1px solid #{$base-text-color};
+                    &:nth-of-type(1){
+                        width: 90px;
+                    }
+                    &:nth-of-type(6){
+                        width: 170px;
+                    }
+                }
+                td{
+                    height: 60px;
+                    padding: 10px 5px;
+                }
+            }
+        }
+    }
+}
+
+/*마이페이지 > 내 진료기록*/
+.my-history{
+    .middle{
+        padding-top: 50px;
+    }
+}
+.target-box{
+    background-color: #{$sub-navi-bg-color};
+    border-radius: 30px;
+    padding: 40px 60px;
+    .flex-wrap{
+        align-items: center;
+        .lf-col{
+            .tt{
+                font-size: 20px;
+                font-weight: 400;
+                strong{
+                    font-weight: 700;
+                }
+            }
+            .dsc{
+                margin-top: 25px;
+            }
+        }
+        .rt-col{
+            margin-left: auto;
+            .btn{
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 80px;
+                height: 80px;
+                padding: 0 47px;
+                border-radius: 15px;
+            }
+        }
+    }
+}
+
+/*마이페이지 > 상담상세내역*/
+.value-section{
+    margin-left: -30px;
+    margin-right: -30px;
+    .value-box{
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 30px;
+    }
+    .division{
+        font-size: 16px;
+        color: #{$second-title-color};
+    }
+    .divs-bold{
+        padding-left: 20px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #{$second-title-color};
+    }
+}
+.table-form{
+    &.type-b{
+        border-top: 0;
+        border-bottom: 0;
+    }
+    &.reservation{
+        .table{
+            border-top: 1px solid #{$second-bgcolor};
+            border-bottom: 1px solid #{$second-bgcolor};
+            th,td{
+                font-size: 15px;
+                border: 1px solid #{$header-border-color};
+                height: 48px;
+                padding: 0 20px;
+                font-size: 15px;
+            }
+            th{
+                background: #{$sub-navi-bg-color};
+                color: #{$second-title-color};
+                font-weight: 400;
+                width: 180px;
+            }
+            td{
+                border-right: 0;
+            }
+        }
+    }
+}
+.target-link{
+    text-decoration: underline;
+}
+.section-title{
+    font-size: 20px;
+}
+.toggle-box{
+    &.active{
+        .toggle-title{
+            .arrow{
+                transform: rotate(0) !important;
+            }
+        }
+        .toggle-contents{
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+            padding: 20px 0;
+        }
+    }
+    &.my-history-list{
+        margin-top: 80px;
+        .toggle-title{
+            border-bottom: 2px solid #{$base-text-color};
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .section-title{
+                padding-bottom: 12px;
+            }
+            .rt-box{
+                margin-left: auto;
+                padding-right: 10px;
+                display: flex;
+                align-items: center;
+                .dsc{
+                    font-size: 14px;
+                    color: #{$link-color};
+                    margin-right: 8px;
+                }
+                .target-link{
+                    position: relative;
+                    z-index: 10;
+                }
+            }
+            .arrow{
+                display: block;
+                width: 16px;
+                height: 16px;
+                background: url(#{$img-url}ico_arrow_toggle.svg) no-repeat center / contain;
+                background-size: 13px;
+                cursor: pointer;
+                transform: rotate(-180deg);
+                transition: 0.4s all;
+            }
+        }
+        .toggle-contents{
+            visibility: hidden;
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: 0.4s all;
+            border-bottom: 1px solid #{$second-bgcolor};
+        }
+    }
+}
+.none-box{
+    text-align: center;
+    padding: 10px 0;
+    .dsc{
+        font-size: 15px;
+        color: #{$second-title-color};
+    }
+    &.type-a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5vw 0;
+    }
+}
+.cs-info-list-box{
+    padding: 0 0 40px;
+    &:last-child{
+        padding-bottom: 0;;
+    }
+    .inner-contain{
+        border: 1px solid #{$second-bgcolor};
+        border-radius: 15px;
+    }
+    .top{
+        padding: 10px 20px;
+        border-bottom: 1px solid #{$second-bgcolor};
+        .date{
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    .md{
+        padding: 10px 20px;
+        .dsc{
+            font-size: 15px;
+            line-height: 1.4;
+            color: #{$second-title-color};
+        }
+    }
+    .bottom{
+        border-top: 1px solid #{$second-bgcolor};
+        padding: 10px 20px;
+    }
+}
+.upload-list{
+    margin-top: -5px;
+    .item{
+        padding: 5px 0;
+        >.flex-wrap{
+            border: 1px solid #{$header-border-color};
+            background-color: #{$sub-navi-bg-color};
+            padding: 13px 20px;
+            border-radius: 10px;
+            .lf-col{
+                display: flex;
+                align-items: center;
+                width: calc(100% - 150px);
+                .name{
+                    @include ellipsis;
+                    font-size: 15px;
+                    max-width: calc(100% - 30px);
+                }
+                .file-type{
+                    font-size: 15px;
+                }
+            }
+            .rt-col{
+                margin-left: auto;
+            }
+        }
+    }
+}
+.utils-box{
+    display: flex;
+    align-items: center;
+    li{
+        padding: 0 15px;
+        @include before;
+        &::before{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 15px;
+            background: #{$second-bgcolor};
+        }
+        &:first-child{
+            &::before{
+                display: none;
+            }
+        }
+        .btns{
+            display: block;
+            text-indent: -9999px;
+            width: 20px;
+            height: 20px;
+            &.prev{
+                background: url(#{$img-url}ico_preview.svg) no-repeat center / contain;
+                background-size: 18px;
+            }
+            &.down{
+                background: url(#{$img-url}ico_download2.svg) no-repeat center / contain;
+                background-size: 18px;
+            }
+            &.del{
+                background: url(#{$img-url}ico_delete.svg) no-repeat center / contain;
+                background-size: 13px;
+            }
+        }
+    }
+}
+.qna-table{
+    .form-chk-wrap{
+        margin-left: -10px;
+        margin-right: -10px;
+        .form-wrap{
+            @include inline-group;
+            padding: 0 10px;
+        }
+        .space{
+            margin: 0 5px;
+        }
+    }
+    .item{
+        .title{
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 10px;
+        }
+    }
+}
+.btn-box2{
+    display: flex;
+    width: 100%;
+    .btn{
+        font-size: 15px;
+    }
+    &.center{
+        justify-content: center;
+    }
+    &.right{
+        justify-content: flex-end;
+    }
+}
+.state{
+    display: block;
+    font-size: 14px;
+    color: #{$first-bgcolor};
+    line-height: 30px;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 20px;
+    background-color: #{$second-title-color};
+}
+
+/*마이페이지 > 의무기록*/
+.target-box{
+    &.record-box{
+        .lf-col{
+            width: calc(100% - 120px); 
+            padding-right: 135px;  
+            .rc-table{
+                display: flex;
+                flex-wrap: wrap;
+                .flex-wrap{
+                    width: 60%;
+                    padding: 6px;
+                    &.fx2{
+                        width: 40%;
+                        .col{
+                            &.right{                                
+                                margin-left: auto;
+                            }
+                        }
+                    }
+                    &.block{
+                        width: 100%;
+                        .right{
+                            width: calc(100% - 160px);
+                        }
+                    }
+                    .col{
+                        &.left{
+                            width: 160px;
+                        }
+                    }
+                    .desc{
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                }
+            }         
+            .sign{
+                font-size: 16px;
+                padding: 0 5px;
+            }
+            .form-wrap{
+                @include inline-group;
+                &.block{
+                    width: 100%;
+                    .form-control{
+                        width: 100%;
+                    }
+                }
+            }
+            th{
+                max-width: 180px;
+            }
+        }
+        .rt-col{
+            .btn{
+                padding: 0 40px;
+            }
+        }
+    }
+}
+.table-form{
+    &.record-table{
+        .table{
+            th{
+                &:first-of-type{
+                    width: 140px;
+                }
+                &:last-of-type{
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+/*마이페이지 > 고객문의*/
+.table-form{
+    &.qna{
+        .normal-color{
+            color: #{$link-color};
+        }
+        .primary-color{
+            color: #{$primary-color};
+        }
+        .q-desc{
+            @include ellipsis;
+            @include before;
+            &::before{
+                @include inline-group;
+                background: url(#{$img-url}ico_qna.svg) no-repeat center / contain;
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
+        }
+        .table{
+            th{
+                &:nth-of-type(1){
+                    width: 60px;
+                }
+                &:nth-of-type(2){
+                    width: 55%;
+                }
+            }
+        }
+    }
+}
+
+/*마이페이지 > 고객문의 > 상세페이지*/
+.bbs-datail{
+    .top{
+        padding: 17px 30px;
+        .flex-wrap{
+            width: 100%;
+            align-items: end;
+            .title{
+                font-size: 18px;
+                width: calc(100% - 200px);
+            }
+            .rt-box{
+                margin-left: auto;
+                ul{
+                    display: flex;
+                    align-items: center;
+                    margin-left: -20px;
+                    margin-right: -20px;
+                    li{
+                        padding: 0 20px;
+                        @include before;
+                        &::before{
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            transform: translateY(-50%);
+                            width: 1px;
+                            height: 15px;
+                            background: #{$second-bgcolor};
+                        }
+                        &:first-child{
+                            &::before{
+                                display: none;
+                            }
+                        }
+                        span{
+                            font-size: 15px;
+                            line-height: 1.12;
+                            color: #{$link-color};
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .middle{
+        border-top: 1px solid #{$base-text-color};
+    }
+    .qna-conts{
+        padding: 30px;
+        border-bottom: 1px solid #{$header-border-color};
+        padding-left: 65px;
+        .desc{
+            font-size: 15px;
+            color: #{$second-title-color};
+            line-height: 1.5;
+            word-break: keep-all;
+            @include before;
+            &::before{
+                position: absolute;
+                left: -36px;
+                top: 0;
+                width: 24px;
+                height: 24px;
+            }
+            &.ico-q{
+                &::before{
+                    background: url(#{$img-url}ico_qna.svg) no-repeat center / contain;
+                }
+            }
+            &.ico-a{
+                &::before{
+                    background: url(#{$img-url}ico_qna_a.svg) no-repeat center / contain;
+                }
+            }
+        }
+        .date{
+            font-size: 13px;
+            color: #{$link-color};
+        }
+    }
+}
+
+/*마이페이지 > 고객문의 > 문의하기*/
+.bbs-writer{
+    .top{
+        padding: 20px 30px;
+    }
+    .middle{
+        border-top: 1px solid #{$base-text-color};
+        padding: 20px 30px;
+    }
+    .flex-wrap{
+        width: 100%;
+        .lf-col{
+            width: 120px;
+            padding: 12px 0;
+        }
+        .rt-col{
+            width: calc(100% - 120px);
+        }
+        .title{
+            font-size: 15px;    
+        }
+    }
+
+}
+.textarea{   
+    font-size: 15px; 
+    resize: none;
+    border: 1px solid #{$second-bgcolor};
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 360px;
+    outline: none;
+    &::placeholder{
+        color: #{$textarea-color};
+    }
+}
+
+/*이용약관*/
+.sub-basic-form{
+    &.terms{
+        .top{
+            text-align: center;
+            .title{
+                padding-bottom: 30px;
+                border-bottom: 3px solid #{$base-text-color};
+            }
+        }
+        .tt{
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .dsc{
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .dsc2{
+            font-size: 15px;
+            padding: 4px 0;
+            color: #{$second-title-color};
+        }
+    }
+}
+
+/*마이페이지 > 내 의료정보 파일*/
+.table-form{
+    &.my-info-file{
+        .table{
+            th{
+                &:nth-of-type(1){
+                    width: 40%;
+                }
+                &:last-of-type{
+                    width: 160px;
+                }
+            }
+            td{
+                height: 60px !important;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+.toggle-state{
+    position: relative;
+    &.active{
+        .btns{
+            i{
+                background: url(#{$img-url}ico_minus.svg) no-repeat center / contain;
+            }
+        }
+        .toggle-state-conts{
+            visibility: visible;
+            height: auto;
+            opacity: 1;
+            overflow: inherit;
+        }
+    }
+    .btns{
+        i{
+            @include inline-group;
+            margin-top: -2px;
+            width: 16px;
+            height: 16px;
+            background: url(#{$img-url}ico_plus.svg) no-repeat center / contain;
+        }
+    }
+    .toggle-state-conts{
+        position: absolute;
+        top: 80%;
+        left: 0;
+        z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: 0.4s all;
+        .inn{
+            border-radius: 15px;
+            background: #{$first-bgcolor};
+            box-shadow: 2px 3px 15px rgba(0,0,0,0.20);
+            padding: 10px;
+            width: 280px;
+            .wrap{
+                @include scroll;
+                max-height: 120px;
+                padding: 0 10px;
+                .item{
+                    display: flex;
+                    align-items: center;
+                    padding: 7px 5px 7px 0;
+                    border-bottom: 1px solid #{$header-border-color};
+                    p{
+                        width: calc(100% - 75px);
+                        font-size: 14px;
+                        @include ellipsis;
+                    }
+                    .btn{
+                        margin-left: 8px;
+                        padding: 0 10px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@include middle{    
+
+    //main
+    .service-wrap{
+        ul{
+            li{
+                a{
+                    padding: 30px 0;
+                }
+            }
+        }
+    }
+
+    .sub-basic-form{
+        padding: 50px 0 80px;
+    }
+
+    /*진료/상담*/
+    .explan{
+        padding: 80px 0 100px;
+        .middle{
+            margin-top: 80px;
+        }
+        &.ilsan{
+            .middle{
+                .col{
+                    &.lf-col{
+                        width: 352px;
+                    }
+                    &.rt-col{
+                    }
+                }
+            }
+        }        
+        &.cooperation{
+            &.ver2{
+                padding: 40px 0 60px;
+                .rt-col{
+                    width: 352px;
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 의무기록*/
+    .target-box{
+        &.record-box{
+            .lf-col{
+                padding-right: 30px;
+                .rc-table{
+                    .flex-wrap{
+                        width: 60%;
+                        &.fx2{
+                            width: 40%;
+                            .col{
+                                &.left{
+                                    width: 80px;
+                                }
+                            }
+                        }
+                        .col{
+                            &.left{
+                                width: 125px;
+                            }
+                        }
+                        &.block{
+                            .right{
+                                width: calc(100% - 130px);
+                            }
+                        }
+                    }
+                }   
+            }
+        }
+    }
+
+    
+}
+
+@include tablet{
+    .floating{
+        bottom: 6%;
+        button{
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    /*진료/상담 > 진료소개*/
+    .explan{
+        .middle{
+            .wrp{
+                .title{
+                    font-size: 20px;
+                }
+            }
+            .flex-wrap{
+                .col{
+                    .inn{
+                        height: 490px;
+                        padding: 25px 20px;
+                        border-radius: 0 30px 0 30px;
+                    }
+                    &.lf-col{
+                    }
+                }
+            }
+        }
+    }
+
+    /*진료/상담 > 상담신청*/
+    .sub-basic-form{
+        .top{
+            .description{
+                font-size: 13px;
+            }
+        }
+        &.consulting{
+            .table-form{
+                col{
+                    width: 100%;
+                }
+                tr{
+                    th{
+                        display: block;
+                        height: auto;
+                        padding: 12px 0 0 0;
+                        border-bottom: 0;
+                        line-height: 1.12;
+                        .tt{
+                            font-size: 14px;
+                            line-height: 24px;
+                        }
+                    }
+                    td{
+                        display: block;
+                        height: auto;
+                        padding: 5px 0 12px;
+                    }
+                }
+            }
+        }
+    }
+    .info-box{
+        &.consulting{
+            padding: 10px 0;
+            .list{
+                li{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .file-upload-wrap{
+        flex-direction: column;
+        .col-8{
+            width: 100%;
+        }
+        .col-4{
+            width: 100%;
+            margin-top: 10px;
+            margin-left: 0;
+            padding-left: 0;
+            .btn{
+                width: 100%;
+            }
+        }
+    }
+    .file-up-area{
+        max-height: 176px;
+        .desc{
+            display: none;
+        }
+    }
+
+    /*병원소개 > 일산차병원*/
+    .explan{
+        &.ilsan{
+            .colum-box{
+                .img-wrap{
+                    .txt-box{
+                        padding-right: 10px;
+                        h2{
+                            font-size: 24px;
+                        }
+                        .dsc{
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+            .middle {
+                .title{
+                    font-size: 22px;
+                }
+                .second-title{
+                    font-size: 18px;
+                    br{
+                        display: none;
+                    }
+                }
+                .dsc{
+                    font-size: 13px !important;
+                    padding-top: 20px !important;
+                }
+            }
+        }
+        &.cooperation{
+            .title{
+                font-size: 22px;
+            }
+            .second-title{
+                font-size: 20px;
+            }
+        }
+        /*이용안내 > 진료절차 */
+        &.infomation{
+
+        }
+
+    }
+
+    /*병원소개 > 진료과 */
+    .introduce{
+        .banner{
+            .img-wrap{
+                .txt-box{
+                    p{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .tab-area{
+        .tab{
+            li{
+                a{
+                    min-width: 130px;
+                    font-size: 14px;
+                    line-height: 34px;
+                }
+            }
+        }
+    }
+    .intro-box{
+        .flex-wrap{
+            .lf-col{
+                width: 150px;
+                margin-right: 20px;
+            }
+            .lf-col{
+                .txt-box{
+                    h2{
+                        font-size: 16px;
+                    }
+                }
+            }
+            .rt-col{
+                width: calc(100% - 170px);
+                .desc{
+                    font-size: 13px;
+                }
+                .bold{
+                    font-size: 14px;
+                }
+            }
+        }
+        .pro-profile{
+            .item{
+                .flex-wrap{
+                    .lf{
+                        padding-right: 20px;
+                    }
+                }
+                .dc-name{
+                    font-size: 18px;
+                }
+                .dsc{
+                    font-size: 13px;
+                }
+            }
+            .button-box{
+                .view{
+                    min-width: 110px;
+                    font-size: 12px;
+                    line-height: 33px;
+                    .arrow{
+                        width: 10px;
+                        top: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 내 상담/진료일정*/
+    .sub-basic-form{
+        .top{
+            .title{
+                font-size: 18px;
+            }
+        }
+    }
+    .schedule-box{
+        padding-top: 20px;
+        .years{
+            .num{
+                font-size: 16px;
+            }
+            .btns{
+                &.prev{
+                    background-size: 10px;
+                }
+                &.next{
+                    background-size: 10px;
+                }
+            }
+        }
+        .table-form{
+            &.sch{
+                display: none;
+            }
+            &.m-sch{
+                display: block;                
+                th{
+                    font-size: 13px;
+                    font-weight: 400;
+                    padding: 0;
+                    height: 27px;
+                    line-height: 27px;
+                    border: 1px solid #{$header-border-color};
+                    border-bottom: 1px solid #{$base-text-color};
+                    background-color: #{$login-bgcolor};
+                    &:nth-of-type(1){
+                        border-left: 0;
+                        width: 60px;
+                    }
+                    &:last-of-type{
+                        border-right: 0;
+                    }
+                }
+                td{
+                    border: 1px solid #{$header-border-color};   
+                    padding: 6px 5px;
+                    height: auto; 
+                    &:nth-of-type(1){
+                        border-left: 0;
+                        width: 60px;
+                    }
+                    &:last-of-type{
+                        border-right: 0;
+                    }            
+                }
+                .value{
+                    color: #{$second-title-color};
+                    font-weight: 500;
+                }
+                .value2{
+                    background-color: #{$login-bgcolor};
+                    font-weight: 500;
+                }
+                .check{
+                    display: block;
+                    margin: auto;
+                    width: 16px;
+                    height: 16px;
+                    border: 1px solid #{$link-color};
+                    border-radius: 100%;
+                }
+                .check2{
+                    display: block;
+                    margin: auto;
+                    width: 16px;
+                    height: 16px;
+                    border: 1px solid #{$primary-color};
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+    .second-basic-form{
+        padding-top: 30px;
+        .top{
+            .title{
+                font-size: 16px;
+            }
+        }
+    }
+    .table-form{
+        &.cs-history{
+            border: 0;
+            thead{
+                display: none;
+            }
+            tr{
+                display: block;
+                border-radius: 10px;
+                border: 1px solid #{$textarea-color};
+                padding: 8px 14px;
+                margin-bottom: 10px;
+            }
+            td{
+                display: block;
+                text-align: left;
+                height: auto !important;
+                font-size: 13px;
+                line-height: 1.12;
+                border: none;
+                padding: 5px 6px !important;
+                padding-left: 80px !important;
+                @include before;
+                &::before{
+                    position: absolute;
+                    left: 0;
+                    font-size: 13px;
+                    font-weight: 700;
+                }
+                &:nth-of-type(1){
+                    &::before{
+                        content: '접수번호 ';
+                    }
+                }
+                &:nth-of-type(2){
+                    &::before{
+                        content: '구분 ';
+                    }
+                }
+                &:nth-of-type(3){
+                    &::before{
+                        content: '진료과 ';
+                    }
+                }
+                &:nth-of-type(4){
+                    &::before{
+                        content: '의료진 ';
+                    }
+                }
+                &:nth-of-type(5){
+                    &::before{
+                        content: '협력병원 ';
+                    }
+                }
+                &:nth-of-type(6){
+                    &::before{
+                        content: '예약일시 ';
+                    }
+                }
+                &:nth-of-type(7){
+                    &::before{
+                        content: '상태 ';
+                    }
+                }
+                &:nth-of-type(8){
+                    &::before{
+                        display: none;
+                    }
+                }
+                &:last-of-type{
+                    padding-left: 0;
+                    border-bottom: 0;
+                    &::before{
+                        display: none;
+                    }
+                }
+            }
+        }            
+    }
+    .btn-box2{
+        margin-top: 15px !important;
+        .btn{
+            width: 100%;
+            font-size: 13px;
+        }
+    }
+    /*마이페이지 > 내 진료기록*/ 
+    .nav-tap{
+        ul{
+            li{
+                a{
+                    font-size: 13px;
+                    line-height: 48px;
+                    height: 48px;
+                }
+            }
+        }
+    }
+    .my-history{
+        .middle{
+            padding-top: 20px;
+        }
+    }
+    .target-box{
+        padding: 15px;
+        border-radius: 10px;
+        .flex-wrap{
+            display: block;
+            text-align: center;
+            .lf-col{
+                .tt{
+                    font-size: 13px;
+                }
+                .dsc{
+                    margin-top: 10px;
+                }
+            }
+            .rt-col{
+                margin-top: 15px;
+                text-align: center;
+                .btn{
+                    font-size: 14px;
+                    font-weight: 400;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    .table-form{
+        &.cs-history{
+            td{
+                &:nth-of-type(1){
+                    &::before{
+                        content: '접수번호 ';
+                    }
+                }
+                &:nth-of-type(2){
+                    &::before{
+                        content: '환자이름 ';
+                    }
+                }
+                &:nth-of-type(3){
+                    &::before{
+                        content: '진료과 ';
+                    }
+                }
+                &:nth-of-type(4){
+                    &::before{
+                        content: '의료진 ';
+                    }
+                }
+                &:nth-of-type(5){
+                    &::before{
+                        content: '상담방법 ';
+                    }
+                }
+                &:nth-of-type(6){
+                    &::before{
+                        content: '예약일시 ';
+                    }
+                }
+                &:nth-of-type(7){
+                    &::before{
+                        content: '상태 ';
+                    }
+                }
+                &:nth-of-type(8){
+                    padding-left: 0 !important;
+                    border-bottom: 0;
+                    &::before{
+                        display: none;
+                    }
+                }
+                &:last-of-type{
+                    padding-left: 0 !important;
+                    &::before{
+                        display: none;
+                    }
+                }
+            }
+        }            
+    }
+
+    /*마이페이지 > 내 진료기록 > 상세페이지*/
+    .target-box{
+        .flex-wrap{
+            display: block;
+        }
+        .lf-col{
+            margin-top: 0;
+            width: 100%;
+        }
+        .rt-col{
+            margin-top: 0;
+        }
+    }
+    .value-section{
+        margin-left: -15px;
+        margin-right: 15px;
+        .value-box{
+            padding: 0 15px;
+        }
+        .division{
+            font-size: 13px;
+        }
+        .divs-bold{
+            font-size: 13px;
+            padding-left: 14px;
+        }
+    }
+    .section-title{
+        font-size: 16px;
+    }
+    .table-form{
+        &.reservation{
+            >.flex-wrap{
+                align-items: center;
+            }
+            .table{
+                col{
+                    &*{
+                        width: 100%;
+                    }
+                }
+                th,td{
+                    font-size: 13px;
+                    padding: 0 12px;
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    border-left: 0;
+                    border-right: 0;
+                }
+                th{
+                    padding: 8px 12px;
+                    font-weight: 700;
+                }
+                td{
+                    padding: 12px;
+                }
+            }
+        }
+    }
+    .toggle-box{
+        &.my-history-list{
+            margin-top: 50px;
+            .toggle-title{
+                padding-bottom: 6px;
+                .section-title{
+                    padding-bottom: 0;
+                }
+                .rt-box{
+                    .dsc{
+                        font-size: 12px;
+                    }
+                }
+                .arrow{
+                    background-size: 10px;    
+                }
+            }
+        }
+    }
+    .cs-info-list-box{
+        padding: 0 0 20px;
+        .top{
+            .date{
+                font-size: 13px;
+            }
+        }
+        .md{
+            .dsc{
+                font-size: 12px;
+            }
+        }
+    }
+    .none-box{
+        .dsc{
+            font-size: 13px;
+        }
+    }
+    .upload-list{
+        .item{
+            >.flex-wrap{
+                .lf-col{
+                    .name{
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+    .qna-table{
+        .item{
+            .title{
+                font-size: 14px;
+            }
+        }
+        .form-chk-wrap{
+            .form-wrap{
+                padding: 5px 10px;
+            }
+        }
+    }
+
+    /*마이페이지 > 내 진료기록 > 진료목록*/    
+    .table-form{
+        &.cs-history{
+            &.cs2{
+                td{
+                    text-align: left;
+                    &:nth-of-type(1){
+                        &::before{
+                            content: '접수번호 ';
+                        }
+                    }
+                    &:nth-of-type(2){
+                        &::before{
+                            content: '환자이름 ';
+                        }
+                    }
+                    &:nth-of-type(3){
+                        &::before{
+                            content: '진료과 ';
+                        }
+                    }
+                    &:nth-of-type(4){
+                        &::before{
+                            content: '의료진 ';
+                        }
+                    }
+                    &:nth-of-type(5){
+                        &::before{
+                            content: '진료방법 ';
+                        }
+                    }
+                    &:nth-of-type(6){
+                        &::before{
+                            content: '예약일시 ';
+                        }
+                    }
+                    &:nth-of-type(7){
+                        &::before{
+                            content: '상태 ';
+                        }
+                    }
+                    &:nth-of-type(8){
+                        padding-left: 80px !important;
+                        &::before{
+                            content: '결제상태 ';
+                            display: inline-block;
+                        }
+                    }
+                    &:nth-of-type(9){
+                        padding-left: 0 !important;
+                        &::before{
+                            display: none;
+                        }
+                    }
+                    &:last-of-type{
+                        padding-left: 0 !important;
+                        &::before{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }            
+    }
+
+    /*마이페이지 > 내 진료기록 > 진료목록 > 상세페이지*/ 
+    .table-form{
+        &.reservation{
+            .table{
+                col{
+                    &*{
+                        width: 100%;
+                    }
+                }
+                th,td{
+                    font-size: 13px;
+                    padding: 0 12px;
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    border-left: 0;
+                    border-right: 0;
+                }
+                th{
+                    padding: 8px 12px;
+                    font-weight: 700;
+                }
+                td{
+                    padding: 12px;
+                }
+            }
+        }
+    }
+    .state{
+        font-size: 12px ;
+    }
+
+    /*마이페이지 > 내 진료기록 > 2차소견 목록*/    
+    .table-form{
+        &.cs-history{
+            &.cs3{
+                td{
+                    text-align: left;
+                    &:nth-of-type(1){
+                        &::before{
+                            content: '접수번호 ';
+                        }
+                    }
+                    &:nth-of-type(2){
+                        &::before{
+                            content: '환자이름 ';
+                        }
+                    }
+                    &:nth-of-type(3){
+                        &::before{
+                            content: '진료과 ';
+                        }
+                    }
+                    &:nth-of-type(4){
+                        &::before{
+                            content: '의료진 ';
+                        }
+                    }
+                    &:nth-of-type(5){
+                        &::before{
+                            content: '예약일시 ';
+                        }
+                    }
+                    &:nth-of-type(6){
+                        &::before{
+                            content: '상태 ';
+                        }
+                    }
+                    &:nth-of-type(7){
+                        &::before{
+                            content: '결제상태 ';
+                        }
+                    }
+                    &:nth-of-type(8){
+                        padding-left: 0 !important;
+                        &::before{
+                            display: none;
+                        }
+                    }
+                    &:last-of-type{
+                        padding-left: 0 !important;
+                        .btn{
+                            height: 26px !important;
+                            line-height: 26px !important;
+                        }
+                        &::before{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }            
+    }
+
+    /*마이페이지 > 내 의료정보 파일*/
+    .table-form{
+        &.type-a{
+            &.my-info-file{
+                border: 0;
+                .table{
+                    border-bottom: 0;
+                    thead{
+                        display: none;
+                    } 
+                    tr{
+                        display: block;
+                        border-radius: 10px;
+                        border: 1px solid #{$textarea-color};
+                        padding: 8px 14px;
+                        &+ tr{
+                            margin-top: 10px;
+                        }
+                    }           
+                    td{
+                        display: block;
+                        text-align: left;
+                        height: auto !important;
+                        line-height: 1.12;
+                        border: none;
+                        padding: 5px 6px;
+                        padding-left: 80px !important;
+                        @include before;
+                        &::before{
+                            position: absolute;
+                            left: 0;
+                            font-size: 13px;
+                            font-weight: 700;
+                        }  
+                        &:nth-of-type(1){
+                            &::before{
+                                content: '파일명 ';
+                            }
+                        }
+                        &:nth-of-type(2){
+                            &::before{
+                                content: '업로드일시';
+                            }
+                        }
+                        &:nth-of-type(3){
+                            &::before{
+                                content: '업로드';
+                            }
+                        }
+                        &:nth-of-type(4){
+                            &::before{
+                                content: '구분';
+                            }
+                        }
+                        &:last-of-type{
+                            padding-left: 0 !important;
+                            text-align: center;
+                            border-bottom: 0;
+                            &::before{
+                                display: none;
+                            }
+                            .utils-box{
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                        }
+                    }                
+                }
+            }
+        }
+    }
+    .toggle-state{
+        .toggle-state-conts{
+            .inn{
+                .wrap{
+                    .item{
+                        p{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 진료비 결제*/
+    .table-form{
+        &.type-a{
+            &.payment{
+                border: 0;
+                .table{
+                    border-bottom: 0;
+                    thead{
+                        display: none;
+                    } 
+                    tr{
+                        display: block;
+                        border-radius: 10px;
+                        border: 1px solid #{$textarea-color};
+                        padding: 8px 14px;
+                        &+ tr{
+                            margin-top: 10px;
+                        }
+                    }           
+                    td{
+                        display: block;
+                        text-align: left;
+                        height: auto !important;
+                        font-size: 13px;
+                        line-height: 1.12;
+                        border: none;
+                        padding: 5px 6px;
+                        padding-left: 80px !important;
+                        @include before;
+                        &::before{
+                            position: absolute;
+                            left: 0;
+                            font-size: 14px;
+                            font-weight: 700;
+                        }  
+                        &:nth-of-type(1){
+                            &::before{
+                                content: '접수번호 ';
+                            }
+                        }
+                        &:nth-of-type(2){
+                            &::before{
+                                content: '환자이름';
+                            }
+                        }
+                        &:nth-of-type(3){
+                            &::before{
+                                content: '진료과';
+                            }
+                        }
+                        &:nth-of-type(4){
+                            &::before{
+                                content: '의료진';
+                            }
+                        }
+                        &:nth-of-type(5){
+                            &::before{
+                                content: '내용';
+                            }
+                        }
+                        &:nth-of-type(6){
+                            &::before{
+                                content: '예약일시';
+                            }
+                        }
+                        &:nth-of-type(7){
+                            &::before{
+                                content: '상태';
+                                display: block;
+                            }
+                        }
+                        &:last-of-type{
+                            border-bottom: 0;
+                        }
+                    }                
+                }
+                &.none{
+                    table{
+                        td{
+                            border-bottom: 0;
+                            padding-left: 0 !important;
+                            &::before{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 의무기록*/
+    .target-box{
+        &.record-box{
+            .lf-col{
+                padding-right: 30px;
+                .rc-table{
+                    .flex-wrap{
+                        display: flex;
+                        width: 100%;
+                        text-align: left;
+                        &.fx2{
+                            width: 100%;
+                            .col{
+                                &.left{
+                                    width: 105px;
+                                }
+                                &.right{
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                        .col{
+                            &.left{
+                                width: 105px;
+                            }
+                        }
+                        &.block{
+                            .right{
+                                width: calc(100% - 130px);
+                            }
+                        }
+                        .desc{
+                            font-size: 14px;
+                        }
+                    }
+                }   
+            }
+        }
+    }
+    .table-form{
+        &.type-a{
+            &.record-table{
+                border: 0;
+                .table{
+                    border-bottom: 0;
+                    thead{
+                        display: none;
+                    } 
+                    tr{
+                        display: block;
+                        border-radius: 10px;
+                        border: 1px solid #{$textarea-color};
+                        padding: 8px 14px;
+                        &+ tr{
+                            margin-top: 10px;
+                        }
+                    }           
+                    td{
+                        display: block;
+                        text-align: left;
+                        height: auto !important;
+                        font-size: 13px;
+                        line-height: 1.12;
+                        border: none;
+                        padding: 5px 6px;
+                        padding-left: 100px !important;
+                        @include before;
+                        &::before{
+                            position: absolute;
+                            left: 0;
+                            font-size: 14px;
+                            font-weight: 700;
+                        }  
+                        &:nth-of-type(1){
+                            &::before{
+                                content: '계측(검사)일자 ';
+                            }
+                        }
+                        &:nth-of-type(2){
+                            &::before{
+                                content: '체중';
+                            }
+                        }
+                        &:nth-of-type(3){
+                            &::before{
+                                content: '체온';
+                            }
+                        }
+                        &:nth-of-type(4){
+                            &::before{
+                                content: '혈압';
+                            }
+                        }
+                        &:nth-of-type(5){
+                            border-bottom: 0;
+                            &::before{
+                                content: '특이사항';
+                            }
+                        }
+                    }                
+                }
+                &.none{
+                    table{
+                        td{
+                            border-bottom: 0;
+                            padding-left: 0 !important;
+                            &::before{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 고객문의 > 상세페이지*/
+    .bbs-datail{
+        .top{
+            .flex-wrap{
+                .title{
+                    font-size: 16px;
+                }
+                .rt-box{
+                    ul{
+                        li{
+                            span{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .qna-conts{
+            .desc{
+                font-size: 14px;
+            }
+        }
+    }
+
+    /*마이페이지 > 의무기록 > 문의하기*/
+    .bbs-writer{
+        .top{
+            padding: 12px 30px;
+        }
+        .middle{
+            padding: 12px 30px;
+        }
+    }
+    .textarea{
+        font-size: 14px;
+        &::placeholder{
+            font-size: 12px;
+        }
+    }
+
+
+
+}
+
+@include mobile{
+
+    //main
+    .main-visual{
+        height: calc(100vh - 52px);
+        .img-box{
+        }
+        .key-visual{
+            &.visual1{
+                background-image: url(#{$img-temp}img_visual_m_main1.jpg);
+            }
+            &.visual2{
+                background-image: url(#{$img-temp}img_visual_m_main2.jpg);
+            }
+            &.visual3{
+                background-image: url(#{$img-temp}img_visual_m_main3.jpg);
+            }
+            .txt-box{
+                word-break: keep-all;
+                .title{
+                    font-size: 28px;
+                }
+                .desc{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    //main
+    .service-wrap{
+        ul{
+            padding: 0;
+            display: block;
+            li{
+                border-bottom: 1px solid rgba(255,255,255,0.3);
+                text-align: left;
+                &::after{
+                    display: none;
+                }
+                &:last-child{
+                    border-bottom: 0;
+                }
+                a{
+                    display: block;
+                    padding: 14px 20px;
+                    font-size: 16px;
+                    &::before{
+                        width: 36px;
+                        height: 36px;
+                    }
+                }
+            }
+        }
+    }
+
+    .sub-basic-form{
+        padding: 30px 0 50px;
+    }
+
+    /*진료/상담 > 진료소개*/
+    .explan{
+        padding: 30px 0 60px;
+        .top{
+            .flex-wrap{
+                display: flex;
+                flex-direction: column-reverse;
+                .lf-col{
+                    width: 100%;
+                    padding-right: 15px;
+                    padding-top: 0;
+                    .title{
+                        font-size: 18px;
+                    }
+                    .dsc{
+                        font-size: 13px;
+                    }
+                    .btn{
+                        line-height: 30px;
+                        height: 30px;
+                        font-size: 13px;
+                        padding: 0 20px;
+                    }
+                }
+                .rt-col{
+                    width: 100%;
+                    .img-wrap{
+                        img{
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+        }
+        .middle{
+            margin-top: 50px;
+            .dsc{
+                font-size: 13px;
+            }
+            .flex-wrap{
+                flex-direction: column;
+                .col{
+                    .inn{
+                        height: 340px;
+                        padding: 25px 20px;
+                        border-radius: 0 30px 0 30px;
+                    }
+                    &.lf-col{
+                        .title{
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .link-btn{
+                    line-height: 30px;
+                    font-size: 12px;
+                    padding: 0 20px;
+                }
+            }
+        }
+        &.ilsan{
+            padding: 30px 0 60px;
+            .colum-box{
+                .dsc{
+                    font-size: 13px;
+                }
+            }
+            .middle{
+                margin-top: 40px;
+            }
+        }
+        //이용안내
+        &.infomation{
+            padding: 30px 0 60px;
+            .top{
+                .flex-wrap{
+                    .lf-col{
+                        padding-right: 0;
+                    }
+                    .rt-col{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        &.cooperation{
+            &.ver2{
+                padding: 30px 0 60px;
+            }
+        }
+    }
+
+    /*진료/상담 > 상담신청*/
+    .table-form th,
+    .table-form td{
+            padding: 10px 4px;
+    }
+    .sub-basic-form{
+        &.consulting{
+            .table-form{
+                .form-wrap{
+                    &.first{
+                        min-width: 110px;
+                    }
+                }
+            }
+            .form-control{
+                width: 92px;
+                height: 28px;
+                line-height: 28px;
+            }
+            .space{
+                margin-left: 5px;
+            }
+        }
+    }
+
+    /*병원소개 > 일산차병원*/
+    .explan{
+        &.ilsan{
+            .colum-box{
+                .img-wrap{
+                    img{
+                        filter: brightness(80%);
+                        display: none;
+                    }
+                    .txt-box{
+                        padding: 50px 25px 50px 90px;
+                        left: 0;
+                        width: 100%;
+                        background: url(#{$img-temp}img_ilsan.png) no-repeat center bottom / cover;
+                        transform: translate(0);
+                        position: inherit;
+                        top: 0;
+                        border-radius: 20px;
+                        h2{
+                            font-size: 22px;
+                            //color: #{$first-bgcolor};
+                        }
+                        .dsc{
+                            font-size: 14px;
+                            //color: #{$first-bgcolor};
+                        }
+                        br{
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .middle{
+                .col{
+                    &.lf-col{
+                        float: none;
+                        width: 100%;
+                        margin-left: 0;
+                        img{
+                            margin: auto;
+                        }
+                    }
+                    &.rt-col{
+                        float: none;
+                        padding-top: 30px;
+                        padding-left: 0;
+                        width: 100%;
+                        margin-top: 15px;
+                    }
+                }
+                .title{
+                    font-size: 18px;
+                }
+                .second-title{
+                    font-size: 16px;
+                    word-break: keep-all;
+                }
+            }
+        }
+        &.cooperation{
+            .second-title{
+                font-size: 20px;
+            }
+            .top{
+                padding-top: 20px;
+                .flex-wrap{
+                    flex-direction: column-reverse;
+                    .lf-col{
+                        width: 100%;
+                        padding-top: 20px;
+                    }
+                    .rt-col{
+                        width: 100%;
+                    }
+                }
+            }
+            &.ver2{
+                .list{
+                    li{
+                        font-size: 12px;
+                    }
+                }
+            }
+        } 
+    }
+    .tab-area{
+        .tab{
+            li{
+                flex: 1;
+                a{
+                    min-width: 100%;
+                    font-size: 14px;
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+
+    /*병원소개 > 진료과 */
+    .nav-tap{
+        ul{
+            li{
+                a{
+                    font-size: 14px;
+                    line-height: 48px;
+                    height: 48px;
+                }
+            }
+        }
+    }
+    .introduce{
+        .banner{
+            padding-top: 20px;
+            .img-wrap{
+                img{
+                    display: none;
+                }
+                .txt-box{
+                    //background: url(#{$img-temp}img_banner1.png) no-repeat right center / cover;
+                    position: inherit;
+                    top: 0;
+                    transform: translate(0);
+                    left: 0;
+                    //border-radius: 20px;
+                    padding: 10px 0;
+                    p{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        .tab{
+            margin-top: 30px;
+        }
+    }
+    .intro-box{
+        margin-top: 10px;
+        .item{
+            padding: 27.5px 0;
+        }
+        .flex-wrap{
+            flex-direction: column;
+            .lf-col{
+                width: 100%;
+                margin-right: 0;
+                .txt-box{
+                    padding: 0;
+                    border-top: 0;
+                    @include before;
+                    &::before{
+                        position: absolute;
+                        top: -12px;
+                        left: 0;
+                        width: 48px;
+                        height: 3px;
+                        background-color: #{$primary-color};
+                    }
+                    br{
+                        display: none;
+                    }
+                    h2{
+                        padding-bottom: 0;
+                    }
+                }
+            }
+            .rt-col{
+                width: 100%;
+                padding-top: 8px;
+            }
+        }
+        &.pro-intro{
+            margin-top: 20px;
+            .item{
+                &.active{
+                    .drp-down-box{
+                        padding-top: 15px;
+                    }
+                }
+                .flex-wrap{
+                    flex-direction: inherit;
+                    align-items: inherit !important;
+                    .lf{
+                        padding-right: 10px;
+                    }
+                }
+                .dc-name{
+                    font-size: 14px;
+                }
+                .drp-down-box{
+                    .table{
+                        th,td{
+                            text-align: center;
+                        }
+                        .check{
+                            margin: auto;
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 내 진료기록 > 상세내역*/  
+    .upload-list{
+        .item{
+            >.flex-wrap{
+                padding: 12px;
+                .lf-col{
+                    .name{
+                        font-size: 13px;
+                    }
+                    .file-type{
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+    .utils-box{
+        li{
+            padding: 0 8px;
+            .btns{
+                width: 18px;
+                height: 18px;   
+                &.prev{
+                    background-size: 15px;
+                }
+                &.down{
+                    background-size: 15px;
+                }
+                &.del{
+                    background-size: 12px;
+                }
+                }
+        }
+    }
+
+    /*마이페이지 > 내 진료기록*/    
+    .target-box{
+        &.cs-list,
+        &.cs2{
+            .flex-wrap{
+                flex-direction: column;
+                align-items: inherit;
+                .lf-col{
+                    width: 100%;
+                    text-align: left;
+                }
+                .rt-col{
+                    width: 100%;
+                    text-align: left;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    .value-section{
+        margin: 0;
+        .value-box{
+            display: flex;
+            align-items: center;
+            padding: 0;
+            padding: 4px 0;
+        }
+        .division{
+            display: block;
+            width: 80px;
+        }
+        .divs-bold{
+            display: block;
+            padding-left: 0;
+        }
+    }
+
+    /*마이페이지 > 내 진료기록 > 상세페이지*/    
+    .none-box{
+        .dsc{
+            font-size: 12px;
+        }
+    }
+
+    /*마이페이지 > 의무기록*/
+    .target-box{
+        .rt-col{
+            .btn{
+                width: 100%;
+            }
+        }
+        &.record-box{
+            .lf-col{
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+    }
+
+    /*마이페이지 > 고객문의*/
+    .table-form{
+        &.type-a{
+            &.qna{
+                .m-hidden{
+                    display: none;
+                }
+            }
+        }
+    }
+    .btn-wrap{
+        .col{
+            flex: 1;
+            .btn{
+                width: 100%;
+            }
+        }
+    }
+
+    /*마이페이지 > 고객문의*/
+    .table-form{
+        &.qna{
+            .table{
+                th{
+                    &:nth-of-type(2){
+                        width: 55%;
+                    }
+                }
+                th,td{
+                    padding: 5px 8px !important;
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 고객문의 > 상세페이지*/
+    .bbs-datail{
+        .top{
+            padding: 12px;
+            .flex-wrap{
+                flex-direction: column;
+                align-items: inherit;
+                .title{
+                    width: 100%;
+                    font-size: 14px;
+                }
+                .rt-box{
+                    margin: 8px 0 0;
+                    ul{
+                        li{
+                            span{
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .qna-conts{
+            padding: 12px;
+            padding-left: 50px;
+            .desc{
+                font-size: 12px;
+            }
+            .date{
+                font-size: 12px;
+            }
+        }
+    }
+    .add-file{
+        .inner{
+            .txt{
+                .name{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    /*마이페이지 > 의무기록 > 문의하기*/
+    .bbs-writer{
+        .top{
+            padding: 12px;
+            .title{
+                font-size: 14px;
+            }
+        }
+        .middle{
+            padding: 12px;
+            .title{
+                font-size: 14px;
+            }
+            .textarea{
+                height: 250px;
+            }
+        }
+        .flex-wrap{
+            display: block;
+            .lf-col{
+                width: 100%;
+                padding: 0;
+            }
+            .rt-col{
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+    }
+    .textarea{
+        font-size: 12px;
+        &::placeholder{
+            font-size: 12px;
+        }
+    }
+
+    /*이용약관*/
+    .sub-basic-form{
+        &.terms{
+            .tt{
+                font-size: 14px;
+            }
+            .dsc{
+                font-size: 14px;
+            }
+            .dsc2{
+                font-size: 12px;
+            }
+        }
+    }
+
+
+    
+
+
+
+}
+

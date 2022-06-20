@@ -1,0 +1,62 @@
+// font, color
+$font-stack: 'Roboto', 'Noto Sans KR', sans-serif;
+$base-bgcolor: #f6f6f6;
+$first-bgcolor: #ffffff;
+$second-bgcolor: #C9CDD2;
+$third-bgcolor: #ebebeb;
+$base-bordercolor: #C9CDD2;
+$dv-bordercolor: rgb(85, 85, 85);
+$base-font-weight: 400; 
+$base-line-height: 1.75rem;
+$base-radius: 5px;
+$base-font-size: 14px;
+$base-text-color: #26282B;
+$opp-text-color: #ffffff;
+$section-title-color: #1B101F;
+$guide-color: #9EA4AA;
+$headerbg : #ffffff;
+$sidebg : #ffffff;
+$footerbg : #ececec;
+$header-bg : #38405a;
+$transparent: transparent;
+
+$primary-color: #FF776A;
+$primary-hover-color: #FF5D4E;
+$primary-pressed-color: #EA5446;
+$disabled-color:  #909296;
+$second-color: #39A905;
+$header-border-color: #E8EBED;
+$second-title-color: #454C53;
+$link-color: #72787F;
+$sub-navi-bg-color: #F7F8F9;
+$chat-button-color: #11426B;
+$second2-hover-color: #0B3558;
+$second2-pressed-color: #092C4D;
+$important-color: #EC2121;
+$textarea-color: #B1B7BD;
+$disabled-color2: #F0F2F3;
+$byte-color: #EC7621;
+$login-bgcolor: #FAFBFC;
+$normal-hover-color: #26282B;
+$normal-pressed-color: #0F1012;
+$basic-pressed-color: #5B6169;
+
+// zero-set
+$zero-set-padding : 0;
+$zero-set-margin: 0;
+/*$aero-set-box-sizing: border-box;*/
+
+// modal size
+$modal-sm: 95%;
+$modal-md: 600px;
+$modal-lg: 1200px;
+
+// Breakpoints
+$breakpoint-mobile: 760px;
+$breakpoint-middle: 1160px;
+$breakpoint-tablet: 860px;
+
+// url
+$img-url: '../../img/common/';
+$img-temp: '../../img/temp/';
+$img-icon-url: '#{$img-url}/icon/';

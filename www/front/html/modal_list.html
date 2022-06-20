@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:url" content="">
+        <meta name="viewport" content="user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, viewport-fit=cover" />                
+        <title>차병원</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="../common/css/import.css">  
+        <style>
+            html, body{background: #f5f5f5; margin: 10px 0}
+            .html-wrap{max-width:1260px; min-width: 1260px; margin:0 auto; border: 1px solid rgba(0,0,0,0.1); padding: 30px 50px 50px 50px; box-shadow: 0 0 30px rgba(0,0,0,0.08); border-radius: 30px; background: #fff;}
+            .data-table{max-height: 100%; }
+            .data-table table{min-width:auto;width: 100%;}
+            .data-table tr {}
+            .data-table thead th, .data-table tbody td{text-align: left; padding: 10px; border-bottom: 1px solid #efefef;}
+            .tabs ul li{flex: 1; padding: 10px 0}
+            .temp-center{text-align: center !important}
+            .temp-right{text-align: right !important}
+            .help-txt{background: #f6f6f6; padding: 10px; margin-top: 10px;}
+            .tab-contents h1{font-size: 20px;}
+            .menu{margin-bottom: 20px;}
+            .btn:focus,
+            .btn:active{text-decoration: underline; color: #000}
+            .tab-flex-wrap { display: flex; border-bottom: 1px solid #ebebeb;}
+            .tab-flex-wrap a { padding: 5px 10px; background: #efefef; border-radius: 5px 5px 0 0; font-size: 16px; font-weight: 700; margin-right: 5px;}
+            .tab-flex-wrap a.active{ background-color: #000; color: #fff;}
+        </style>
+    </head>
+    <body>
+
+        <div class="html-wrap">
+
+            <div class="tab-contents-wrap">
+                <div class="tab-contents on">
+                    <div class="tab-flex-wrap">
+                        <a href="list.html" class="margin-top20">페이지</a>
+                        <a href="modal_list.html" class="margin-top20 active">레이어팝업</a>
+                    </div>
+                    <div class="data-table margin-top20">
+                        <table>
+                            <col width="%">
+                            <col width="%">
+                            <col width="%">
+                            <col width="%">
+                            <col width="">
+                            <col width="">
+                            <col width="10%">
+                            <col width="">
+                            <thead>
+                                <tr>
+                                    <th>1 Depth</th>
+                                    <th>2 Depth</th>
+                                    <th>3 Depth</th>
+                                    <th>4 Depth</th>
+                                    <th>레이어팝업 ID</th>
+                                    <th>파일명</th>
+                                    <th class="temp-center">확인</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>진료/상담</td>
+                                    <td>상담신청</td>
+                                    <td>접수번호 팝업</td>
+                                    <td></td>
+                                    <td>receiptPopup</td>
+                                    <td>FR-PT-0001-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0001-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>담당 의료진 팝업</td>
+                                    <td></td>
+                                    <td>doctorChoicePopup</td>
+                                    <td>FR-PT-0001-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0001-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>문진표 팝업</td>
+                                    <td></td>
+                                    <td>myModifyPopup</td>
+                                    <td>FR-PT-0001-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0001-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>현지병원 팝업</td>
+                                    <td></td>
+                                    <td>hospitalChoicePopup</td>
+                                    <td>FR-PT-0001-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0001-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>2차소견 신청</td>
+                                    <td>담당 의료진 팝업</td>
+                                    <td></td>
+                                    <td>receiptPopup</td>
+                                    <td>FR-PT-0001-03.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0001-03.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td>마이페이지</td>
+                                    <td>내 진료기록</td>
+                                    <td>상담목록 상세페이지</td>
+                                    <td>업로드파일 미리보기 팝업</td>
+                                    <td>previewPopup</td>
+                                    <td>FR-PT-0100-02-01-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0100-02-01-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>진료목록 상세페이지</td>
+                                    <td>업로드파일 미리보기 팝업</td>
+                                    <td>previewPopup</td>
+                                    <td>FR-PT-0100-02-02-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0100-02-02-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>2차소견 목록 상세페이지</td>
+                                    <td>업로드파일 미리보기 팝업</td>
+                                    <td>previewPopup</td>
+                                    <td>FR-PT-0100-02-03-02.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0100-02-03-02.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>내 의료정보파일</td>
+                                    <td>업로드파일 미리보기 팝업</td>
+                                    <td></td>
+                                    <td>previewPopup</td>
+                                    <td>FR-PT-0100-03-01.html</td>
+                                    <td class="temp-center"><a href="FR-PT-0100-03-01.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                                <tr>
+                                    <td>모달별 케이스</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>modal_case.html</td>
+                                    <td class="temp-center"><a href="modal_case.html" class="btn xs etc" target="_blank">보기</a></td>
+                                    <td>○</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- start:레이어 팝업 -->
+        <div class="popup-wrap"></div>
+        <!-- //end:레이어 팝업 -->
+
+        <script src="../common/js/ui.dev.js"></script>
+        <script src="../common/js/popup.js"></script>
+
+        
+
+        
+        
+    </body>
+</html>

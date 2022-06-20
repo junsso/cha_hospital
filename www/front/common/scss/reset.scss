@@ -1,0 +1,75 @@
+@charset "UTF-8";
+@import './_variables', './_functions', './_breakpoint';
+html{
+    overflow-y: scroll;
+}
+
+html, body{
+    @include zero-set;
+    font-size: $base-font-size;
+    background-color: #{$first-bgcolor};
+    font-family: #{$font-stack};
+    font-size: #{$base-font-size};
+    word-break: break-all;
+    color: #{$base-text-color};
+    -webkit-overflow-scrolling: touch;
+    //-webkit-user-select: none;
+    //-moz-user-select: none;
+    //-ms-user-select: none;
+    //user-select: none;
+}
+
+div, html, p, span, em, h1, h2, h3, h4, h5, ul, li, ol{
+    @include zero-set;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+a, input, button, textarea, select, textarea{
+    @include zero-set;
+    border: 0 none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    color: $base-text-color;
+    font-family: #{$font-stack};
+    font-size: 1em;
+    vertical-align: middle;
+}
+input{
+    &:disabled{
+        &+label{
+            color: #{$guide-color};
+        }
+    }
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+button{
+    cursor: pointer;    
+    background: transparent none;
+}
+a:active, button:active, input:focus{
+    outline: none;
+}
+::placeholder{
+    color: $guide-color;
+    font-weight: 300;
+}
+::after, ::before{
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+@include tablet{
+    html, body{
+        font-size: 13px;
+    }
+}

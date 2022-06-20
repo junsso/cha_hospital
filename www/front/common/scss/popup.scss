@@ -1,0 +1,491 @@
+@charset "UTF-8";
+@import '_variables', '_functions', '_breakpoint';
+
+.popup-wrap{
+    .layerpop{
+        @include box-fixed-center;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s all;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.show{
+            opacity:1;
+            visibility: visible;
+        }
+        .overlay {        
+            @include box-fixed-center;
+            background: rgba(38,40,43,0.5);
+            width: 100%;
+            height: 100%;
+        }
+        .popup-content{
+            @include popupcont;
+            overflow: hidden;
+            .inner{
+                >.title {
+                    position: relative;
+                    font-size: 0;;
+                    padding: 32px 40px;
+                    h2 {
+                        flex: none;
+                        @include inline-group;
+                        width: 75%;
+                        font-size: 24px;
+                        line-height: 28px;
+                        font-weight: 700;
+                        color: #{$section-title-color};
+                    }
+                    .description{
+                        font-size: 16px;
+                        color: #{$second-title-color};
+                    }
+                    .btn-box{
+                        position: absolute;
+                        top: 20px;
+                        right: 40px;
+                        .close{
+                            background: url(#{$img-url}ico_m_close.svg) no-repeat center / contain;
+                            background-size: 18px;
+                            width: 28px;
+                            height: 28px;
+                        }
+                    }
+                    .rt-bx{
+                        margin-left: auto;
+                    }
+                }
+                .body{
+                    padding: 0 40px 0;
+                    >.inner{
+                        @include scroll;
+                        max-height: 500px;
+                        margin-top: 0;
+                    }
+                }
+                .bottom{
+                    padding-bottom: 45px;
+                }
+                .flex-btn-wrap{
+                    overflow: inherit;
+                }
+            }
+        }
+        &.alert{
+            .popup-content{
+                width: 280px;
+                .inner{
+                    .body{
+                        padding: 40px 24px 24px;
+                    }
+                }
+                .alert-box{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    .img-wrap{
+                        margin-bottom: 10px;
+                    }
+                    .dsc-bold{
+                        font-size: 15px;
+                        font-weight: 700;
+                    }
+                    .dsc-small{
+                        font-size: 13px;
+                        color: #{$second-title-color};
+                    }
+                    .dsc-md{
+                        font-size: 15px;
+                        color: #{$second-title-color};
+                    }
+                    &.confirm{
+                        min-height: 90px;
+                    }
+                }
+                .btn-wrap{
+                    gap: 0;
+                    .btn{
+                        width: 100%;
+                        line-height: 46px;
+                        height: 46px;
+                        border-radius: 0 0;
+                    }
+                    .col-6{
+                        width: 50%;
+                    }
+                    .col-12{
+                    }
+                }
+            }
+        }
+    }
+    
+}
+.active-popup{ 
+    overflow: hidden;
+    .popup-wrap{
+        opacity:1;
+        visibility: visible;
+    }
+    
+}
+
+/*접수번호 선택 팝업*/
+.table-form{
+    &.type-a{
+        border-top: 3px solid #{$base-text-color};
+        border-bottom: 1px solid #{$base-text-color};
+        .table{
+            border-bottom: 1px solid #{$base-text-color};
+            th{
+                border-bottom: 1px solid #{$base-text-color};
+                font-size: 16px;
+            }
+            tr{
+                border-bottom: 1px solid #{$header-border-color};
+            }
+            th,td{
+                height: 48px;
+                padding: 5px 15px;
+                text-align: center;
+            }
+        }
+    }
+    &.receipt{
+        .table{
+            th{
+                &:first-child{
+                    width: 50px;
+                }
+                &:nth-of-type(5){
+                    width: 180px;
+                }
+                &:last-child{
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+
+/*의료진 선택 팝업*/
+.dc-choice-box{
+    .item{
+        border: 1px solid #{$second-bgcolor};
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        transition: 0.2s all;
+        &.active{
+            border-color: #{$primary-color};
+            .ico_check{
+                visibility: visible;
+                opacity: 1;
+            }
+            .dc-name{
+                color: #{$primary-color};
+            }
+        }
+        .flex-wrap{
+            align-items: center;
+            .lf{
+                padding-right: 12px;
+            }
+            .rt{
+                width: calc(100% - 72px);
+                position: relative;
+                padding-right: 60px;
+            }
+        }
+        .profile{
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .dc-name{
+            font-size: 16px;
+            font-weight: 700;
+            transition: 0.2s all;
+            margin-bottom: 5px;
+            span{
+                font-weight: 400;
+            }
+        }
+        .dsc{
+            font-size: 14px; 
+            line-height: 1.4;
+            strong{
+                font-weight: 500;
+            }
+        }
+        .ico_check{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: url(#{$img-url}ico_checked_pink.svg) no-repeat center / contain;
+            width: 36px;
+            height: 36px;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s all;
+        }
+    }
+    &.type-a{
+        .rt{
+            width: 100%;
+        }
+    }
+}
+
+/*문진표 레이어팝업*/
+.my-modify-wrap{
+    max-height: 600px !important;
+}
+
+@include middle{
+    .popup-wrap{
+        .layerpop{
+            .popup-content{
+                width: 95%;
+            }
+        }
+    } 
+}
+
+@include tablet{
+    .popup-wrap{
+        .layerpop{
+            .popup-content{
+                width: 90%;
+                .inner{
+                    >.title{
+                        padding: 25px;
+                        h2{
+                            font-size: 20px;
+                        }
+                        .description{
+                            font-size: 14px;
+                        }
+                        .btn-box{
+                            right: 25px;
+                        }
+                    }
+                    .body{
+                        padding: 0 25px;
+                        >.inner{
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    .table-form.type-a .table th, 
+    .table-form.type-a .table td{
+        height: 42px;
+    }
+    .table-form{
+        &.type-a{
+            .table{
+                th{
+                    font-size: 14px;
+                }
+                td{
+                    height: 50px !important;
+                }
+            }
+        }
+        &.receipt{
+            .table{
+                th{
+                    &:first-of-type{
+                        width: 50px;
+                    }
+                    &:last-of-type{
+                        width: 112px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mobile{
+    
+    .popup-wrap{
+        .layerpop{
+            .popup-content{
+                width: 90%;
+                .inner{
+                    >.title{
+                        padding: 18px;
+                        h2{
+                            font-size: 18px;
+                        }
+                        .description{
+                            font-size: 13px;
+                        }
+                        .btn-box{
+                            right: 18px;
+                            .close{
+                                background-size: 14px;
+                            }
+                        }
+                    }
+                    .body{
+                        padding: 0 18px;
+                        >.inner{
+                            padding-right: 0;
+                            max-height: 400px;
+                        }
+                    }
+                    .bottom{
+                        padding: 0 18px;
+                        padding-bottom: 25px;
+                    }
+                }
+            }
+        }
+    } 
+    /*진료/상담 > 접수번호선택 팝업*/
+    .table-form{
+        &.type-a{
+            .table{
+                th{
+                    font-size: 14px;
+                }
+                td{
+                    height: 50px !important;
+                }
+            }
+        }
+        &.receipt{
+            border: 0;
+            .table{
+                border-bottom: 0;
+                thead{
+                    display: none;
+                }
+                tr{
+                    display: block;
+                    border: 1px solid #{$textarea-color};
+                    border-radius: 10px;
+                    padding: 8px 14px;
+                    position: relative;
+                    &+tr{
+                        margin-top: 10px;
+                    }
+                }
+                td{
+                    display: block;
+                    text-align: left;
+                    font-size: 13px;
+                    line-height: 1.12;
+                    border-radius: none;
+                    border-bottom: 0;
+                    padding: 10px 5px;
+                    padding-left: 102px;
+                    height: auto !important;
+                    @include before;
+                    &::before{
+                        position: absolute;
+                        left: 30px;
+                        font-size: 13px;
+                        font-weight: 700;
+                    }
+                    &:nth-of-type(1){
+                        position: absolute;
+                        top: 9px;
+                        left: 15px;
+                        padding-left: 0;
+                        z-index: 10;
+                        &::before{
+                            content: ' ';
+                        }
+                    }
+                    &:nth-of-type(2){
+                        &::before{
+                            content: '접수번호 ';
+                        }
+                    }
+                    &:nth-of-type(3){
+                        &::before{
+                            content: '진료과 ';
+                        }
+                    }
+                    &:nth-of-type(4){
+                        &::before{
+                            content: '의료진 ';
+                        }
+                    }
+                    &:nth-of-type(5){
+                        &::before{
+                            content: '예약일시 ';
+                        }
+                    }
+                    &:nth-of-type(6){
+                        &::before{
+                            content: '상태 ';
+                        }
+                    }
+                    &:nth-of-type(7){
+                        border-bottom: 0;
+                        &::before{
+                            content: ' ';
+                        }
+                    }
+                    &:last-of-type{
+                        text-align: left;
+                        padding-left: 30px;
+                        &::before{
+                            content: ' ';
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /*진료/상담 > 의료진 선택 팝업*/
+    .dc-choice-box{
+        .item{
+            padding: 14px;
+            .flex-wrap{
+                .rt{
+                    padding-right: 40px;
+                }
+            }
+            .dsc{
+                font-size: 13px;
+            }
+            .ico_check{
+                right: 0;
+                width: 26px;
+                height: 26px;
+            }
+        }
+        &.type-a{
+            .item{
+                .flex-wrap{
+                    .rt{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    /*진료/상담 > 문진표 팝업*/
+    .my-modify-wrap{
+        max-height: 400px !important;
+    }
+
+
+
+}
